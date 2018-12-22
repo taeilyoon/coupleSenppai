@@ -40,5 +40,6 @@ dependencies {
 
     compile 'com.google.firebase:firebase-database:9.2.1'
 
+    implementation project(':android-starter-kit')
 }
 apply plugin: 'com.google.gms.google-services'
