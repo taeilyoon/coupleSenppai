@@ -26,6 +26,11 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://jitpack.io' }
+
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -45,6 +50,9 @@ dependencies {
     implementation 'com.github.medyo:fancybuttons:1.9.0'
     implementation 'com.google.firebase:firebase-database:16.0.5'
     implementation project(':android-starter-kit')
+    implementation ('com.github.mahimrocky:EventCalender:v1.0.0') {
+        exclude group : 'com.android.support'
+    }
     kapt "com.android.databinding:compiler:3.1.4"
 }
 apply plugin: 'com.google.gms.google-services'
