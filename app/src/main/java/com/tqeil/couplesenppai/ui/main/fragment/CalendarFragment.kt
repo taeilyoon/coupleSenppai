@@ -1,17 +1,18 @@
-package com.tqeil.couplesenppai
+package com.tqeil.couplesenppai.ui.main.fragment
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.tqeil.couplesenppai.R
 
-class FeedFragment: Fragment() {
+class CalendarFragment: Fragment() {
 
     companion object {
 
-        fun create(): FeedFragment {
-            val fragment = FeedFragment()
+        fun create(): CalendarFragment {
+            val fragment = CalendarFragment()
             val args = Bundle()
             fragment.arguments = args
             return fragment
@@ -20,7 +21,7 @@ class FeedFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_feed, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
 
         return rootView
     }

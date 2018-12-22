@@ -1,8 +1,12 @@
-package com.tqeil.couplesenppai
+package com.tqeil.couplesenppai.ui.main
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import com.tqeil.couplesenppai.ui.main.fragment.CalendarFragment
+import com.tqeil.couplesenppai.ui.main.fragment.ChatFragment
+import com.tqeil.couplesenppai.ui.main.fragment.FeedFragment
+import com.tqeil.couplesenppai.ui.main.fragment.MatchFragment
 import java.lang.IllegalArgumentException
 
 class MainPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
