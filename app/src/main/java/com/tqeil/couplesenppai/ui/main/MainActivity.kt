@@ -10,31 +10,18 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.tqeil.couplesenppai.R
-import com.tqeil.couplesenppai.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import net.jspiner.ask.ui.base.BaseActivity
-import net.jspiner.ask.ui.base.BaseViewModel
 import java.lang.IllegalArgumentException
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), NavigationView.OnNavigationItemSelectedListener {
-
-    override fun loadState(bundle: Bundle) {
-        //no-op
-    }
-
-    override fun saveState(bundle: Bundle) {
-        //no-op
-    }
-
-    override fun createViewModel() = MainViewModel()
-    override fun getLayoutId() = R.layout.activity_main
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var pager: ViewPager
     private lateinit var pagerAdapter: MainPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->

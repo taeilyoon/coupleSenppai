@@ -1,14 +1,13 @@
 package com.tqeil.couplesenppai.ui.main.fragment
 
+import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.tqeil.couplesenppai.R
-import com.tqeil.couplesenppai.databinding.FragmentChatBinding
-import net.jspiner.ask.ui.base.BaseFragment
-import net.jspiner.ask.ui.base.BaseViewModel
 
-class ChatFragment: BaseFragment<FragmentChatBinding, BaseViewModel>() {
-
-    override fun getLayoutId() = R.layout.fragment_chat
+class ChatFragment: Fragment() {
 
     companion object {
 
@@ -21,4 +20,11 @@ class ChatFragment: BaseFragment<FragmentChatBinding, BaseViewModel>() {
 
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val rootView = inflater.inflate(R.layout.fragment_chat, container, false)
+
+
+
+        return rootView
+    }
 }
