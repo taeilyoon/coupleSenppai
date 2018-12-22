@@ -6,5 +6,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="23dp"
+            android:text="나와 잘 맞을것 같은 짝선배들이에요!"
+            android:textColor="#434343"
+            android:textSize="13dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/student_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="23dp"
+            android:layout_weight="1" />
+
     </LinearLayout>
 </layout>
