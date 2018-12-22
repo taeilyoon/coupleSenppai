@@ -24,31 +24,13 @@ import android.widget.TextView
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
 import com.tqeil.couplesenppai.R
-import com.tqeil.couplesenppai.databinding.ActivityLoginBinding
 
 import kotlinx.android.synthetic.main.activity_login.*
-import net.jspiner.ask.ui.base.BaseActivity
-import net.jspiner.ask.ui.base.BaseViewModel
 
 /**
  * A login screen that offers login via email/password.
  */
-class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivity.LoginViewModel>(), LoaderCallbacks<Cursor> {
-
-    override fun loadState(bundle: Bundle) {
-        //no-op
-    }
-
-    override fun saveState(bundle: Bundle) {
-        //no-op
-    }
-
-    override fun getLayoutId() = R.layout.activity_login
-    override fun createViewModel() = LoginViewModel()
-
-    //no-op
-    class LoginViewModel: BaseViewModel()
-
+class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -56,6 +38,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginActivity.LoginView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
         // Set up the login form.
         populateAutoComplete()
         password.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
