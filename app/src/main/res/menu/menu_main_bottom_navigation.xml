@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_calendar"
+        android:enabled="true"
+        android:icon="@drawable/calander_ico"
+        android:title="캘린더"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_match"
+        android:icon="@drawable/match_ico"
+        android:title="선후배 매칭"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/home_ico"
+        android:title="홈"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_chatting"
+        android:enabled="true"
+        android:icon="@drawable/chat_ico"
+        android:title="채팅"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_feed"
+        android:enabled="true"
+        android:icon="@drawable/board_ico"
+        android:title="게시판"
+        app:showAsAction="ifRoom" />
+
+</menu>

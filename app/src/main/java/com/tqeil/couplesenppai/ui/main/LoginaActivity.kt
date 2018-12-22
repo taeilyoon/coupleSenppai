@@ -27,7 +27,6 @@ class LoginaActivity : Activity() {
             var id =idEditText.text.toString()
             var pw =passwordEditText.text.toString()
 
-            //TODO:: Dialog
 
 
             val body = JSONObject()     //JSON 오브젝트의 body 부분

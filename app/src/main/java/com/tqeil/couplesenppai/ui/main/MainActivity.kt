@@ -2,23 +2,13 @@ package com.tqeil.couplesenppai.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
 import com.tqeil.couplesenppai.R
+import com.tqeil.couplesenppai.Utils.BottomNavigationHelper
 import com.tqeil.couplesenppai.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
 import net.jspiner.ask.ui.base.BaseActivity
-import net.jspiner.ask.ui.base.BaseViewModel
-import java.lang.IllegalArgumentException
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
 
     override fun loadState(bundle: Bundle) {
         //no-op
@@ -31,74 +21,51 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
     override fun createViewModel() = MainViewModel()
     override fun getLayoutId() = R.layout.activity_main
 
-    private lateinit var pager: ViewPager
     private lateinit var pagerAdapter: MainPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
-        val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        nav_view.setNavigationItemSelectedListener(this)
-
         initPager()
+        initBottomNavigation()
         intent = Intent(this, LoginaActivity::class.java)
         startActivity(intent)
     }
 
     private fun initPager() {
-        pager = findViewById(R.id.pager)
         pagerAdapter = MainPagerAdapter(supportFragmentManager)
-        pager.adapter = pagerAdapter
+        binding.pager.adapter = pagerAdapter
+        binding.pager.addOnPageChangeListener(object: ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+                // no-op
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                // no-op
+            }
+
+            override fun onPageSelected(position: Int) {
+                binding.bottomNavigation
+                    .menu
+                    .getItem(position).isChecked = true
+            }
+
+        })
     }
 
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
+    private fun initBottomNavigation() {
+        BottomNavigationHelper.disableShiftMode(binding.bottomNavigation)
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { menu->
+            val pageIndex = when (menu.itemId) {
+                R.id.menu_calendar -> 0
+                R.id.menu_match -> 1
+                R.id.menu_home -> 2
+                R.id.menu_chatting -> 3
+                R.id.menu_feed -> 4
+                else -> throw IllegalArgumentException("잘못된 id : ${menu.itemId}")
+            }
+            binding.pager.currentItem = pageIndex
+
+            true
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val pageIndex = when (item.itemId) {
-            R.id.nav_calendar -> 0
-            R.id.nav_chat -> 1
-            R.id.nav_feed -> 2
-            R.id.nav_match -> 3
-            else -> throw IllegalArgumentException("잘못된 id : ${item.itemId}")
-        }
-        pager.currentItem = pageIndex
-
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
     }
 }
