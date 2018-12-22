@@ -55,11 +55,19 @@
                     android:singleLine="true"
                     android:textSize="10dp" />
 
-                <android.support.v7.widget.AppCompatSpinner
+                <TextView
+                    android:id="@+id/tag_display"
                     android:layout_width="match_parent"
                     android:layout_height="42dp"
                     android:layout_marginTop="27dp"
-                    android:background="@drawable/white_radius_7" />
+                    android:background="@drawable/white_radius_7"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true"
+                    android:text="태그를 선택해주세요 (중복 가능)"
+                    android:textColor="#696969"
+                    android:textSize="10dp" />
 
                 <Button
                     android:layout_width="120dp"
