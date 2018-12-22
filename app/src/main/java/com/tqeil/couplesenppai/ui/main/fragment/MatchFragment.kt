@@ -1,13 +1,14 @@
 package com.tqeil.couplesenppai.ui.main.fragment
 
-import android.support.v4.app.Fragment
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.tqeil.couplesenppai.R
+import com.tqeil.couplesenppai.databinding.FragmentMatchBinding
+import net.jspiner.ask.ui.base.BaseFragment
+import net.jspiner.ask.ui.base.BaseViewModel
 
-class MatchFragment: Fragment() {
+class MatchFragment: BaseFragment<FragmentMatchBinding, BaseViewModel>() {
+
+    override fun getLayoutId() = R.layout.fragment_match
 
     companion object {
 
@@ -20,9 +21,4 @@ class MatchFragment: Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_match, container, false)
-
-        return rootView
-    }
 }
