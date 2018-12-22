@@ -1,5 +1,6 @@
 package com.tqeil.couplesenppai.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import com.tqeil.couplesenppai.R
@@ -26,6 +27,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
         super.onCreate(savedInstanceState)
         initPager()
         initBottomNavigation()
+        intent = Intent(this, LoginaActivity::class.java)
+        startActivity(intent)
     }
 
     private fun initPager() {
