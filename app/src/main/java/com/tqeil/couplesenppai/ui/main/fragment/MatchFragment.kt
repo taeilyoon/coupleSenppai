@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.PopupMenu
 import com.tqeil.couplesenppai.R
 import com.tqeil.couplesenppai.databinding.FragmentMatchBinding
+import com.tqeil.couplesenppai.ui.match.MatchResultActivity
 import net.jspiner.ask.ui.base.BaseFragment
 import net.jspiner.ask.ui.base.BaseViewModel
 
@@ -73,6 +74,13 @@ class MatchFragment : BaseFragment<FragmentMatchBinding, BaseViewModel>() {
                 false
             }
             popupMenu.show()
+        }
+        binding.search.setOnClickListener {
+            MatchResultActivity.startActivity(
+                binding.schoolName.toString(),
+                binding.className.toString(),
+                selectedTagSet.toList()
+            )
         }
     }
 
