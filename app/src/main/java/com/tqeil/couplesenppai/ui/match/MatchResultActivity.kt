@@ -21,7 +21,7 @@ class MatchResultActivity : BaseActivity<ActivityMatchResultBinding, BaseViewMod
                 putExtra(INTENT_KEY_SCHOOL_NAME, schoolName)
                 putExtra(INTENT_KEY_CLASS_NAME, className)
                 putExtra(INTENT_KEY_TAG_LIST, tagList)
-            }
+            }.let { context.startActivity(it) }
 
         }
 
