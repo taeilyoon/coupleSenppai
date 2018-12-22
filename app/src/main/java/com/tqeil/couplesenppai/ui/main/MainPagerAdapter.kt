@@ -9,7 +9,7 @@ import java.lang.IllegalArgumentException
 class MainPagerAdapter(fragmentManager: FragmentManager) : FragmentStatePagerAdapter(fragmentManager) {
 
     companion object {
-        const val PAGE_COUNT = 4
+        const val PAGE_COUNT = 5
     }
 
     override fun getCount() = PAGE_COUNT
