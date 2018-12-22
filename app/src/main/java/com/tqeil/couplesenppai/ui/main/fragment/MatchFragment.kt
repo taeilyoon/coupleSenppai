@@ -77,9 +77,10 @@ class MatchFragment : BaseFragment<FragmentMatchBinding, BaseViewModel>() {
         }
         binding.search.setOnClickListener {
             MatchResultActivity.startActivity(
+                context!!,
                 binding.schoolName.toString(),
                 binding.className.toString(),
-                selectedTagSet.toList()
+                ArrayList(selectedTagSet.toList())
             )
         }
     }
