@@ -1,5 +1,6 @@
 package com.tqeil.couplesenppai.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -53,6 +54,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
         nav_view.setNavigationItemSelectedListener(this)
 
         initPager()
+        intent = Intent(this, LoginaActivity::class.java)
+        startActivity(intent)
     }
 
     private fun initPager() {

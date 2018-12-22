@@ -32,6 +32,10 @@
                 android:name=".ui.main.LoginActivity"
                 android:label="@string/title_activity_login">
         </activity>
+        <activity android:name=".ui.main.LoginaActivity">
+        </activity>
+        <activity android:name=".ui.main.SignupActivity">
+        </activity>
     </application>
 
 </manifest>
