@@ -16,6 +16,9 @@ class ApplicationClass : Application() {
     }
 
     companion object {
-
+//        var retrofit = Retrofit.Builder()
+//            .baseUrl("https://")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
     }
 }

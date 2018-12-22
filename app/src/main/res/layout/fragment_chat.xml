@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
     <android.support.constraint.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <TextView
-                android:text="chat"
-                android:layout_width="wrap_content"
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="456dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/linearLayoutCompat">
+
+
+            <ImageView android:layout_width="25dp"
+                       android:layout_height="25dp"
+
+
+                       android:src="@drawable/add_ico"
+                       android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                       android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                       app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                       android:id="@+id/plus"/>
+            <android.support.design.widget.TextInputEditText
+                    android:id="@+id/send_message"
+                    android:layout_width="301dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/send" android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/plus" android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            <ImageView android:layout_width="25dp"
+                       android:layout_height="25dp"
+                       android:src="@drawable/send_ico"
+                       android:layout_marginTop="8dp"
+                       app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                       app:layout_constraintBottom_toBottomOf="parent"
+                       android:id="@+id/send"
+                       app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
